@@ -1,13 +1,13 @@
 # EnvironmentVariableProtocolResolver
 
-A custom Spring [`ProtocolResolver`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ProtocolResolver.html) that resolves environment variables.
+A custom Spring [`ProtocolResolver`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ProtocolResolver.html) that resolves environment variables.  
 When properly registered, it is used to resolve `ENV:` locations:
 
 	DefaultResourceLoader resourceLoader = ...;
 	Resource resource = resourceLoader.getResource("ENV:FOO");
 	assertEquals("BAR", resource.getContentAsString(Charset.defaultCharset()));
 
-This allows to configure an application to load resources in different ways,
+This allows an application to load resources in different ways,
 without the need to add conditional logic à la
 
 	String data = myConfig.loadDataFromEnvironment()
