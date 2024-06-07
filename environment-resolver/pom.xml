@@ -13,6 +13,12 @@
 	<description>The core artifact providing the EnvironmentVariablesProtocolResolver</description>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>3.0.2</version>
+			<optional>true</optional>
+		</dependency>
 		<!-- COMPILE scope -->
 		<dependency>
 			<groupId>org.springframework</groupId>

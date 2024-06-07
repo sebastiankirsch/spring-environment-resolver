@@ -96,20 +96,14 @@
 					</execution>
 				</executions>
 				<configuration>
-					<additionalDependencies>
-						<dependency>
-							<groupId>com.google.code.findbugs</groupId>
-							<artifactId>jsr305</artifactId>
-							<version>3.0.2</version>
-						</dependency>
-					</additionalDependencies>
 					<level>package</level>
 					<links>
 						<link>https://docs.spring.io/spring-framework/docs/6.1.x/javadoc-api/</link>
 					</links>
 					<show>package</show>
 				</configuration>
-			</plugin></plugins>
+			</plugin>
+		</plugins>
 	</build>
 
 	<dependencyManagement>
