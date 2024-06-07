@@ -2,6 +2,7 @@ package io.github.sebastiankirsch.contribution.spring;
 
 import org.springframework.core.io.AbstractResource;
 import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
@@ -43,26 +44,28 @@ class EnvironmentVariableResource extends AbstractResource {
 		return value != null;
 	}
 
+	@NonNull
 	@Override
 	public byte[] getContentAsByteArray() throws FileNotFoundException {
 		verifyVariableIsDefined();
 		return value.getBytes(UTF_8);
 	}
 
+	@NonNull
 	@Override
-	public String getContentAsString(Charset charset) throws FileNotFoundException {
+	public String getContentAsString(@Nullable Charset charset) throws FileNotFoundException {
 		verifyVariableIsDefined();
 		return value;
 	}
 
-	@Override
 	@NonNull
+	@Override
 	public String getDescription() {
 		return "ENV:" + name;
 	}
 
-	@Override
 	@NonNull
+	@Override
 	public InputStream getInputStream() throws FileNotFoundException {
 		return new ByteArrayInputStream(getContentAsByteArray());
 	}
