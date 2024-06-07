@@ -9,7 +9,7 @@ import org.springframework.lang.Nullable;
 /**
  * A {@link ProtocolResolver} resolving a location using the <i><code>ENV:</code> protocol</i> to a {@link Resource}.
  */
-class EnvironmentVariableProtocolResolver implements ProtocolResolver {
+public class EnvironmentVariableProtocolResolver implements ProtocolResolver {
 
 	private static final String ENV_PREFIX = "ENV:";
 
