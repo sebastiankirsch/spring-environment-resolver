@@ -1,4 +1,4 @@
-package net.tcc.contribution.spring;
+package io.github.sebastiankirsch.contribution.spring;
 
 import org.junit.jupiter.api.Test;
 
