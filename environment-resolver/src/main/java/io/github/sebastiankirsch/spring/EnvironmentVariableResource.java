@@ -1,4 +1,4 @@
-package io.github.sebastiankirsch.contribution.spring;
+package io.github.sebastiankirsch.spring;
 
 import org.springframework.core.io.AbstractResource;
 import org.springframework.lang.NonNull;
