@@ -33,6 +33,12 @@
 		<maven.compiler.release>17</maven.compiler.release>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- plugin configuration -->
+		<plugins.jar.phase>none</plugins.jar.phase>
+		<plugins.javadoc.phase>package</plugins.javadoc.phase>
+		<plugins.javadoc-jar.phase>none</plugins.javadoc-jar.phase>
+		<plugins.source.phase>none</plugins.source.phase>
+
 		<version.spring-framework>6.1.8</version.spring-framework>
 	</properties>
 
@@ -58,6 +64,12 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>3.4.1</version>
+					<executions>
+						<execution>
+							<id>default-jar</id>
+							<phase>${plugins.jar.phase}</phase>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -65,9 +77,17 @@
 					<version>3.6.3</version>
 					<executions>
 						<execution>
+							<id>javadoc</id>
+							<goals>
+								<goal>javadoc-no-fork</goal>
+							</goals>
+							<phase>${plugins.javadoc.phase}</phase>
+						</execution>
+						<execution>
 							<goals>
 								<goal>jar</goal>
 							</goals>
+							<phase>${plugins.javadoc-jar.phase}</phase>
 						</execution>
 					</executions>
 					<configuration>
@@ -92,6 +112,7 @@
 							<goals>
 								<goal>jar-no-fork</goal>
 							</goals>
+							<phase>${plugins.source.phase}</phase>
 						</execution>
 					</executions>
 				</plugin>
@@ -140,6 +161,11 @@
 	<profiles>
 		<profile>
 			<id>release</id>
+			<properties>
+				<plugins.jar.phase>package</plugins.jar.phase>
+				<plugins.javadoc.phase>none</plugins.javadoc.phase>
+				<plugins.javadoc-jar.phase>package</plugins.javadoc-jar.phase>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -156,6 +182,10 @@
 							</execution>
 						</executions>
 						-->
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
 					</plugin>
 					<plugin>
 						<groupId>org.sonatype.central</groupId>

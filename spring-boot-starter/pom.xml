@@ -18,6 +18,10 @@
 		Registers the EnvironmentVariablesProtocolResolver via ApplicationContextInitializer.
 	</description>
 
+	<properties>
+		<plugins.source.phase>package</plugins.source.phase>
+	</properties>
+
 	<dependencies>
 		<!-- COMPILE scope -->
 		<dependency>
@@ -62,10 +66,6 @@
 						<phase>none</phase>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
