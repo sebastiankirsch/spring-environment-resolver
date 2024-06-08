@@ -1,6 +1,5 @@
 package io.github.sebastiankirsch.spring;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
@@ -10,35 +9,34 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
-import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.withEnvironmentVariable;
+import static java.nio.charset.Charset.defaultCharset;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class EnvironmentVariableProtocolResolverApplicationContextInitializerTest {
 
 	@Test
-	void testApplicationStartUp() throws Exception {
-		String setValue = UUID.randomUUID().toString();
-		withEnvironmentVariable("foo", setValue).and("bar", null).execute(() -> {
+	void environmentVariableProtocolResolverIsRegisteredAtApplicationContext() throws Exception {
+		String definedValue = UUID.randomUUID().toString();
+		withEnvironmentVariable("foo", definedValue).execute(() -> {
 			SpringApplication springApplication = new SpringApplication(SpringConfiguration.class);
 			springApplication.setBannerMode(Banner.Mode.OFF);
-			ConfigurableApplicationContext context = springApplication.run();
 
-			Resource value = context.getBean("foo", Resource.class);
-
-			Assertions.assertEquals(setValue, value.getContentAsString(StandardCharsets.UTF_8));
+			try (ConfigurableApplicationContext context = springApplication.run()) {
+				Resource value = context.getBean("foo", Resource.class);
+				assertEquals(definedValue, value.getContentAsString(defaultCharset()));
+			}
 		});
 	}
 
 	@Configuration
 	static class SpringConfiguration {
-
 		@Bean
 		Resource foo(ResourceLoader resourceLoader) {
 			return resourceLoader.getResource("ENV:foo");
 		}
-
 	}
 
 }
