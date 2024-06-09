@@ -1,6 +1,10 @@
 name: Maven verify
 on:
     push:
+        paths-ignore:
+            - '**/*.md'
+            - '.editorconfig'
+            - '.gitignore'
     pull_request:
 jobs:
     verify:
