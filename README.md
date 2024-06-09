@@ -1,4 +1,7 @@
 # EnvironmentVariableProtocolResolver
+[![Maven Central Version](https://img.shields.io/maven-central/v/io.github.sebastiankirsch.spring/environment-resolver-reactor)](https://central.sonatype.com/artifact/io.github.sebastiankirsch.spring/environment-resolver-reactor)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/sebastiankirsch/spring-environment-resolver/maven-verify.yml)](https://github.com/sebastiankirsch/spring-environment-resolver/actions/workflows/maven-verify.yml?query=branch%3Amain++)
+![javadoc.io version](https://javadoc.io/badge2/io.github.sebastiankirsch.spring/environment-resolver/javadoc.svg)
 
 A custom Spring [`ProtocolResolver`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ProtocolResolver.html) that resolves environment variables.  
 When properly registered, it is used to resolve `ENV:` locations:
