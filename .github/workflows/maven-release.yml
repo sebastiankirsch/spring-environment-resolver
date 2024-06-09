@@ -1,0 +1,32 @@
+name: Release
+on:
+    workflow_dispatch:
+jobs:
+    release:
+        permissions:
+            contents: write
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Check-out
+                uses: actions/checkout@v4
+            -   name: Set up JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: '17'
+                    cache: maven
+                    gpg-private-key: ${{ secrets.GPG_SECRET_KEY }}
+                    server-id: sonatype-central
+                    server-username: SONATYPE_USERNAME
+                    server-password: SONATYPE_TOKEN
+            -   name: Configure git user
+                run: |
+                    git config user.email "actions@github.com"
+                    git config user.name "$GITHUB_ACTOR via GitHub Actions"
+            -   name: Release with Maven
+                run: 'mvn -B -ntp -Dstyle.color=always release:prepare release:perform -Dusername=$GITHUB_ACTOR -Dpassword=$GITHUB_TOKEN'
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    GPG_PASSPHRASE: ''
+                    SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+                    SONATYPE_TOKEN: ${{ secrets.SONATYPE_TOKEN }}
