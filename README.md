@@ -23,7 +23,7 @@ to use the `EnvironmentVariableProtocolResolver`.
 	<dependency>
 		<groupId>io.github.sebastiankirsch.contribution.spring</groupId>
 		<artifactId>environment-resolver-spring-boot-starter</artifactId>
-		<version>1.0.0</version>
+		<version>0.1.0</version>
 	</dependency>
 
 ### Vanilla Spring
@@ -37,5 +37,5 @@ In this case, you should use the following dependency:
 	<dependency>
 		<groupId>io.github.sebastiankirsch.contribution.spring</groupId>
 		<artifactId>environment-resolver</artifactId>
-		<version>1.0.0</version>
+		<version>0.1.0</version>
 	</dependency>
