@@ -35,8 +35,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- plugin configuration -->
 		<plugins.jar.phase>none</plugins.jar.phase>
-		<plugins.javadoc.phase>package</plugins.javadoc.phase>
-		<plugins.javadoc-jar.phase>none</plugins.javadoc-jar.phase>
+		<plugins.javadoc.goal>javadoc-no-fork</plugins.javadoc.goal>
+		<plugins.javadoc-aggregate-jar.phase>none</plugins.javadoc-aggregate-jar.phase>
 		<plugins.source.phase>none</plugins.source.phase>
 
 		<version.spring-framework>6.1.8</version.spring-framework>
@@ -85,18 +85,12 @@
 						<execution>
 							<id>javadoc</id>
 							<goals>
-								<goal>javadoc-no-fork</goal>
+								<goal>${plugins.javadoc.goal}</goal>
 							</goals>
-							<phase>${plugins.javadoc.phase}</phase>
+							<phase>package</phase>
 							<configuration>
 								<reportOutputDirectory>${project.build.directory}/apidocs</reportOutputDirectory>
 							</configuration>
-						</execution>
-						<execution>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-							<phase>${plugins.javadoc-jar.phase}</phase>
 						</execution>
 					</executions>
 					<configuration>
@@ -150,6 +144,26 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<inherited>false</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>javadoc</id>
+						<phase>none</phase>
+					</execution>
+					<execution>
+						<id>aggregated-jar</id>
+						<goals>
+							<goal>aggregate-jar</goal>
+						</goals>
+						<phase>${plugins.javadoc-aggregate-jar.phase}</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
 	<dependencyManagement>
@@ -187,8 +201,8 @@
 			<id>release</id>
 			<properties>
 				<plugins.jar.phase>package</plugins.jar.phase>
-				<plugins.javadoc.phase>none</plugins.javadoc.phase>
-				<plugins.javadoc-jar.phase>package</plugins.javadoc-jar.phase>
+				<plugins.javadoc.goal>jar</plugins.javadoc.goal>
+				<plugins.javadoc-aggregate-jar.phase>package</plugins.javadoc-aggregate-jar.phase>
 			</properties>
 			<build>
 				<plugins>
