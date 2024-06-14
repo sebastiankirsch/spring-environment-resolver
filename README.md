@@ -18,6 +18,10 @@ without the need to add conditional logic à la
 		? System.getenv("FOO")
 		: resourceLoader.getResource("classpath:foo.txt").getContentAsString(defaultCharset());
 
+Instead, this can be simplified to
+
+	String data = resourceLoader.getResource(myConfig.dataLocation()).getContentAsString(defaultCharset());
+
 ## Usage
 ### Spring Boot
 Just add `environment-resolver-spring-boot-starter` as a dependency.
