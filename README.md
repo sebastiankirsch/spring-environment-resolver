@@ -21,7 +21,7 @@ This will configure the application context (which is injected as `ResourceLoade
 to use the `EnvironmentVariableProtocolResolver`.
 
 	<dependency>
-		<groupId>io.github.sebastiankirsch.contribution.spring</groupId>
+		<groupId>io.github.sebastiankirsch.spring</groupId>
 		<artifactId>environment-resolver-spring-boot-starter</artifactId>
 		<version>0.1.0</version>
 	</dependency>
@@ -35,7 +35,7 @@ Note that most application contexts are subclasses of `DefaultResourceLoader`.
 In this case, you should use the following dependency:
 
 	<dependency>
-		<groupId>io.github.sebastiankirsch.contribution.spring</groupId>
+		<groupId>io.github.sebastiankirsch.spring</groupId>
 		<artifactId>environment-resolver</artifactId>
 		<version>0.1.0</version>
 	</dependency>
