@@ -88,6 +88,9 @@
 								<goal>javadoc-no-fork</goal>
 							</goals>
 							<phase>${plugins.javadoc.phase}</phase>
+							<configuration>
+								<reportOutputDirectory>${project.build.directory}/apidocs</reportOutputDirectory>
+							</configuration>
 						</execution>
 						<execution>
 							<goals>
