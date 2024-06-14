@@ -2,7 +2,7 @@
 [![Maven Central Version](https://img.shields.io/maven-central/v/io.github.sebastiankirsch.spring/environment-resolver-reactor)](https://central.sonatype.com/artifact/io.github.sebastiankirsch.spring/environment-resolver-reactor)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/sebastiankirsch/spring-environment-resolver/maven-verify.yml)](https://github.com/sebastiankirsch/spring-environment-resolver/actions/workflows/maven-verify.yml?query=branch%3Amain++)
 [![SonarCloud QG](https://sonarcloud.io/api/project_badges/measure?project=sebastiankirsch_spring-environment-resolver&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sebastiankirsch_spring-environment-resolver)
-[![javadoc.io version](https://javadoc.io/badge2/io.github.sebastiankirsch.spring/environment-resolver/javadoc.svg)](https://javadoc.io/doc/io.github.sebastiankirsch.spring/environment-resolver)
+[![javadoc.io version](https://javadoc.io/badge2/io.github.sebastiankirsch.spring/environment-resolver-reactor/javadoc.svg)](https://javadoc.io/doc/io.github.sebastiankirsch.spring/environment-resolver-reactor)
 
 A custom Spring [`ProtocolResolver`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ProtocolResolver.html) that resolves environment variables.  
 When properly registered, it is used to resolve `ENV:` locations:
@@ -27,7 +27,7 @@ to use the `EnvironmentVariableProtocolResolver`.
 	<dependency>
 		<groupId>io.github.sebastiankirsch.spring</groupId>
 		<artifactId>environment-resolver-spring-boot-starter</artifactId>
-		<version>0.1.0</version>
+		<version>0.2.0</version>
 	</dependency>
 
 ### Vanilla Spring
@@ -41,7 +41,7 @@ In this case, you should use the following dependency:
 	<dependency>
 		<groupId>io.github.sebastiankirsch.spring</groupId>
 		<artifactId>environment-resolver</artifactId>
-		<version>0.1.0</version>
+		<version>0.2.0</version>
 	</dependency>
 
 ## Encoding
