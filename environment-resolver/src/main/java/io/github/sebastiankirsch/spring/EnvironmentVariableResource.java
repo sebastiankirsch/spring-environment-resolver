@@ -13,23 +13,24 @@ import java.lang.management.RuntimeMXBean;
 import java.nio.charset.Charset;
 import java.util.Optional;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
 /**
  * A {@link org.springframework.core.io.Resource} referring to an environment variable.
  */
 class EnvironmentVariableResource extends AbstractResource {
 
+	private final Charset charset;
 	private final String name;
 	private final String value;
-
 
 	/**
 	 * Creates an <code>EnvironmentVariableResource</code>.
 	 *
-	 * @param name the name of the environment variable to resolve
+	 * @param charset the <code>Charset</code> to use when encoding the referred value to bytes
+	 *                or providing an input stream
+	 * @param name    the name of the environment variable to resolve
 	 */
-	EnvironmentVariableResource(@NonNull String name) {
+	EnvironmentVariableResource(Charset charset, @NonNull String name) {
+		this.charset = charset;
 		this.name = name;
 		this.value = System.getenv(name);
 	}
@@ -48,7 +49,7 @@ class EnvironmentVariableResource extends AbstractResource {
 	@Override
 	public byte[] getContentAsByteArray() throws FileNotFoundException {
 		verifyVariableIsDefined();
-		return value.getBytes(UTF_8);
+		return value.getBytes(charset);
 	}
 
 	@NonNull

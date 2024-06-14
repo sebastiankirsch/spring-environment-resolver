@@ -39,3 +39,17 @@ In this case, you should use the following dependency:
 		<artifactId>environment-resolver</artifactId>
 		<version>0.1.0</version>
 	</dependency>
+
+## Encoding
+
+The `EnvironmentVariableProtocolResolver` returns a `Resource` based on `System.getenv`.
+Since such resources offer some methods that require encoding (e.g. `Resource.getInputStream`), a `Charset` is required.
+
+### Spring Boot
+The registered resolver will use the default charset for encoding.
+To use another charset for encoding,
+set the application|system property `spring.contrib.EnvironmentVariableProtocolResolver.charset`.
+
+### Vanilla Spring
+The default implementation uses the default charset for that.
+If another charset should be used, one can specify that by using the appropriate constructor.
