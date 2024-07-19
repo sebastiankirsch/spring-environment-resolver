@@ -110,7 +110,7 @@
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<projectVersionPolicyId>SemVerVersionPolicy</projectVersionPolicyId>
 						<releaseProfiles>release</releaseProfiles>
-						<scmCommentPrefix />
+						<scmCommentPrefix/>
 						<scmDevelopmentCommitComment>Update to next version</scmDevelopmentCommitComment>
 						<scmReleaseCommitComment>Release @{releaseLabel}</scmReleaseCommitComment>
 						<tagNameFormat>v@{project.version}</tagNameFormat>
