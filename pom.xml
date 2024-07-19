@@ -229,7 +229,7 @@
 						<extensions>true</extensions>
 						<configuration>
 							<autoPublish>true</autoPublish>
-							<deploymentName>Release ${project.version}</deploymentName>
+							<deploymentName>${project.artifactId}:${project.version}</deploymentName>
 							<publishingServerId>sonatype-central</publishingServerId>
 							<tokenAuth>true</tokenAuth>
 							<waitUntil>published</waitUntil>
