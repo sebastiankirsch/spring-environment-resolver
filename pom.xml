@@ -225,13 +225,12 @@
 					<plugin>
 						<groupId>org.sonatype.central</groupId>
 						<artifactId>central-publishing-maven-plugin</artifactId>
-						<version>0.4.0</version>
+						<version>0.5.0</version>
 						<extensions>true</extensions>
 						<configuration>
 							<autoPublish>true</autoPublish>
 							<deploymentName>${project.artifactId}:${project.version}</deploymentName>
 							<publishingServerId>sonatype-central</publishingServerId>
-							<tokenAuth>true</tokenAuth>
 							<waitUntil>published</waitUntil>
 						</configuration>
 					</plugin>
