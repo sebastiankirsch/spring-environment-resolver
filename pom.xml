@@ -25,8 +25,8 @@
 	<scm child.scm.connection.inherit.append.path="false">
 		<connection>scm:git:https://github.com/sebastiankirsch/spring-environment-resolver.git</connection>
 		<url>https://github.com/sebastiankirsch/spring-environment-resolver</url>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 	<url>https://github.com/sebastiankirsch/spring-environment-resolver</url>
 
 	<properties>
