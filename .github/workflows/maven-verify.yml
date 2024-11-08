@@ -20,3 +20,8 @@ jobs:
                   cache: maven
             - name: Build & verify with Maven
               run: mvn -B -ntp -Dstyle.color=always verify
+            - name: Report JUnit results
+              uses: test-summary/action@v2
+              with:
+                paths: "**/target/surefire-reports/TEST-*.xml"
+              if: always()
